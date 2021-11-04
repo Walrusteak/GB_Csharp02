@@ -32,10 +32,8 @@ namespace Task1
 
         public Node<T> FindNode(T searchValue)
         {
-            if (FirstNode == null)
-                return null;
             Node<T> wantedNode = FirstNode;
-            while (wantedNode != null && (!wantedNode.Value?.Equals(searchValue) ?? true))
+            while (wantedNode != null && !(wantedNode.Value == null && searchValue == null) && (!wantedNode.Value?.Equals(searchValue) ?? true))
                 wantedNode = wantedNode.NextNode;
             return wantedNode;
         }
